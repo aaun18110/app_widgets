@@ -16,40 +16,52 @@ class Bar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Flutter App"),
-      ),
-      // ignore: avoid_unnecessary_containers
-      body: Center(
-        child: Container(
-          // padding: EdgeInsets.all(10),
-          width: 100,
-          height: 100,
-          decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [Colors.blue, Colors.yellow]),
-              // shape: BoxShape.circle,
-              borderRadius: BorderRadius.circular(8.0),
-              boxShadow: [
-                BoxShadow(
-                    color: Color.fromARGB(221, 128, 128, 128),
-                    blurRadius: 5,
-                    spreadRadius: 5,
-                    offset: Offset(3.0, 5.0))
-              ]),
+        appBar: AppBar(
+          title: const Text("Flutter App"),
+        ),
+        body: Center(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Center(
-                child: Text(
-              "Flutter Dev",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 25,
+            child: Container(
+              height: 350,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20.0),
+                color: Colors.black,
               ),
-            )),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        color: Colors.red,
+                      ),
+                    ),
+                    Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        color: Colors.yellow,
+                      ),
+                    ),
+                    Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        color: Colors.green,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }

@@ -54,12 +54,12 @@ class _LoginState extends State<Login> {
                             ),
                             TextFormField(
                               obscureText: true,
-                              decoration: const InputDecoration(
-                                  border: OutlineInputBorder(
+                              decoration: InputDecoration(
+                                  border: const OutlineInputBorder(
                                       borderRadius: BorderRadius.all(
                                           Radius.circular(16.0))),
                                   hintText: "Enter Passwrod",
-                                  label: Text("Password")),
+                                  label: const Text("Password")),
                             ),
                           ],
                         )),
@@ -82,7 +82,8 @@ class _LoginState extends State<Login> {
                             //         builder: (context) => const JsonData()));
                             Constants.prefs?.setBool("loggedIn", true);
                             // pushReplacementNamed is used to not back of the page again
-                            Navigator.pushReplacementNamed(context, "/Json_datas");
+                            Navigator.pushReplacementNamed(
+                                context, "/Json_datas");
                           },
                           child: const Text(
                             "Sign In",

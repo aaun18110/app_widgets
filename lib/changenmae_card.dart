@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Changename_Card extends StatelessWidget {
+class Changename_Card extends StatefulWidget {
   const Changename_Card({
     Key? key,
     required this.myText,
@@ -11,6 +11,11 @@ class Changename_Card extends StatelessWidget {
   final String myText;
   final TextEditingController _namecontroller;
 
+  @override
+  State<Changename_Card> createState() => _Changename_CardState();
+}
+
+class _Changename_CardState extends State<Changename_Card> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -27,7 +32,7 @@ class Changename_Card extends StatelessWidget {
           ),
           Text(
             // "Welcome $myText",
-            myText,
+            widget.myText,
             style: const TextStyle(
                 fontSize: 35, fontWeight: FontWeight.bold, color: Colors.black),
           ),
@@ -42,22 +47,22 @@ class Changename_Card extends StatelessWidget {
               //   myText = value;
               //   setState(() {});
               // },
-              controller: _namecontroller,
+              controller: widget._namecontroller,
               keyboardType: TextInputType.text,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                label: Text("Name"),
+              decoration: InputDecoration(
+                border: const OutlineInputBorder(),
+                label: const Text("Name"),
                 hintText: "Enter your name",
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(16.0),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
             child: TextField(
               decoration: InputDecoration(
-                label: Text("Password"),
+                label: const Text("Password"),
                 hintText: "Enter Password",
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
               ),
             ),
           ),

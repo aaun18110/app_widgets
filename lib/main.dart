@@ -1,29 +1,22 @@
-// ignore_for_file: prefer_const_constructors
-
+import 'package:app_widgets/Json_data.dart';
+import 'package:app_widgets/Utils/Contants.dart';
+import 'package:app_widgets/login.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Constants.prefs = await SharedPreferences.getInstance();
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    title: ("Flutter App"),
-    home: Bar(),
+    title: "Flutter App",
+    home: Constants.prefs?.getBool("loggedIn") == true
+        ? const JsonData()
+        : const Login(),
+    theme: ThemeData(primarySwatch: Colors.purple),
+    routes: {
+      "/login": (context) => const Login(),
+      "/Json_datas": (context) => const JsonData(),
+    },
   ));
-}
-
-class Bar extends StatelessWidget {
-  const Bar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Flutter App"),
-      ),
-      // ignore: avoid_unnecessary_containers
-      body: Container(
-        color: Color.fromARGB(255, 9, 255, 0),
-        child: Center(child: Text("Flutter Doctor")),
-      ),
-    );
-  }
 }
